@@ -1,3 +1,5 @@
+### Script to scrape raw data from webpage and clean it
+
 library(rvest)
 library(tidyverse)
 

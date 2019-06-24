@@ -1,5 +1,4 @@
 ## Script to run analysis
-
 library(tidyverse)
 library(lubridate)
 library(gridExtra)
@@ -93,8 +92,7 @@ plt_papers <- papers %>%
         theme(axis.text.x = element_text(angle=45),
               panel.grid.minor = element_blank())
 png("stratified_proportion.png")
-grid.arrange(plt_guests + ggtitle("Non-newspaper guests"), 
+grid.arrange(plt_guests + ggtitle("Main guests"), 
              plt_papers + ggtitle("Newspaper reviewers"), 
              nrow=1)
 dev.off()
-

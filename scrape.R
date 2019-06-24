@@ -66,3 +66,15 @@ df_guests <- bind_rows(lapply(df_guests, function(x) data.frame(guest=as.charact
 # Edit this in Excel or text editor of your choice
 write.csv(df_guests, "guests_raw.csv", row.names=F)
 
+# Separate paper data frame by comma then save to disk to likewise be manually cleaned
+df_papers <- bind_rows(lapply(df_papers, function(x) {
+    splt <- strsplit(x, ",")
+    if (length(splt) == 1) {
+       splt <- splt[[1]]
+    }
+    data.frame(guest=splt)
+}),
+    .id="date") %>%
+    mutate(female=0)
+write.csv(df_papers, "papers_raw.csv", row.names=F)
+
